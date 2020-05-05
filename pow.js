@@ -1,15 +1,13 @@
+function pow(b, p) {
 
-function pow(b,p){
 
+    let resultado = 1;
+    for (let i = 1; i <= p; i++) {
 
-    let resultado=1;
-for(let i=1;i<=p;i++){
+        resultado = resultado * b;
 
-resultado=resultado*b;
-  
+    }
+    return resultado;
 }
-  return resultado;
-}
 
-console.log(pow(2,3))
-
+console.log(pow(2, 3))
