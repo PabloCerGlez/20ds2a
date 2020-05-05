@@ -1,47 +1,41 @@
 function Stack() {
-    this.dataStore = []
-    this.top = 0
-    this.push = push
-    this.pop = pop
-    this.peek = peek
-    this.clear = clear
-    this.length = length
-}
-
-function push(element) {
-    this.dataStore[this.top++] = element
-}
-
-function peek() {
-    return this.dataStore[this.top - 1]
-}
-
-function pop() {
-    return this.dataStore[--this.top]
-}
-
-function clear() {
-    this.top = 0
-}
-
-function length() {
-    return this.top
+    let items = []
+    this.push = function(element) {
+        items.push(element)
+    }
+    this.pop = function() {
+        return items.pop()
+    }
+    this.peek = function() {
+        return items[items.length - 1]
+    }
+    this.isEmpty = function() {
+        return items.length == 0
+    }
+    this.size = function() {
+        return items.length
+    }
+    this.clear = function() {
+        items = []
+    }
+    this.print = function() {
+        console.log(items.toString())
+    }
 }
 
 function divideBy2(decNumber) {
-    var remStack = new Stack(),
-        rem,
-        binaryString = '';
-    while (decNumber > 0) { //{1}
-        rem = Math.floor(decNumber % 2); //{2}
-        remStack.push(rem); //{3}
-        decNumber = Math.floor(decNumber / 2); //{4}
+    var remSatack = new Stack(),
+        rem, binaryString = ""
+    while (decNumber > 0) {
+        rem = Math.floor(decNumber % 2)
+        remSatack.push(rem)
+        decNumber = Math.floor(decNumber / 2)
     }
-    while (!remStack.isEmpty()) { //{5}
-        binaryString += remStack.pop().toString();
+    while (!remSatack.isEmpty()) {
+        binaryString += remSatack.pop().toString()
     }
-    return binaryString;
+    return binaryString
 }
-console.log(divideBy2(233));
-console.log(divideBy2(10));
-console.log(divideBy2(100));
+console.log(divideBy2(233))
+console.log(divideBy2(10))
+console.log(divideBy2(1000))

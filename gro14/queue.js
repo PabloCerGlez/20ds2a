@@ -1,48 +1,40 @@
-function Stack() {
-    this.dataStore = []
-    this.top = 0
-    this.push = push
-    this.pop = pop
-    this.peek = peek
-    this.clear = clear
-    this.length = length
-}
-
-function push(element) {
-    this.dataStore[this.top++] = element
-}
-
-function peek() {
-    return this.dataStore[this.top - 1]
-}
-
-function pop() {
-    return this.dataStore[--this.top]
-}
-
-function clear() {
-    this.top = 0
-}
-
-function length() {
-    return this.top
+function Queue() {
+    let items = []
+    this.enqueue = function(element) {
+        items.push(element)
+    }
+    this.denqueue = function() {
+        return items.shift()
+    }
+    this.front = function() {
+        return items[0]
+    }
+    this.isEmpty = function() {
+        return items.length == 0
+    }
+    this.size = function() {
+        return items.length
+    }
+    this.print = function() {
+        console.log(items.toString())
+    }
 }
 
 function hotPotato(nameList, num) {
-    let queue = new Queue(); // {1}
+    let queue = new Queue()
     for (let i = 0; i < nameList.length; i++) {
-        queue.enqueue(nameList[i]); // {2}
+        queue.enqueue(nameList[i])
     }
-    let eliminated = '';
+    let eliminted = ''
     while (queue.size() > 1) {
         for (let i = 0; i < num; i++) {
-            queue.enqueue(queue.dequeue()); // {3}
+            queue.enqueue(queue.denqueue())
         }
-        eliminated = queue.dequeue(); // {4}
-        console.log(eliminated + ' was eliminated from the Hot Potato game.');
+        eliminted = queue.denqueue()
+        console.log(eliminted + 'was eliminated from the hot potato game.')
     }
-    return queue.dequeue(); // {5}
+    return queue.denqueue()
 }
-let names = ['John', 'Jack', 'Camila', 'Ingrid', 'Carl'];
-let winner = hotPotato(names, 7);
-console.log('The winner is: ' + winner);
+let names = ['john', 'jack', 'camila', 'ingrid', 'carlos']
+let winner = hotPotato(names, 7)
+console.log('the winner is:' + winner)
