@@ -1,33 +1,3 @@
-function Stack() {
-    this.dataStore = []
-    this.top = 0
-    this.push = push
-    this.pop = pop
-    this.peek = peek
-    this.clear = clear
-    this.length = length
-}
-
-function push(element) {
-    this.dataStore[this.top++] = element
-}
-
-function peek() {
-    return this.dataStore[this.top - 1]
-}
-
-function pop() {
-    return this.dataStore[--this.top]
-}
-
-function clear() {
-    this.top = 0
-}
-
-function length() {
-    return this.top
-}
-
 function Queue() {
     this.dataStore = [];
     this.enqueue = enqueue;
@@ -69,49 +39,8 @@ function empty() {
         return false;
     }
 }
-
-function Dancer(name, sex) {
-    this.name = name;
-    this.sex = sex;
-}
-
-function getDancers(males, females) {
-    var names = read("dancers.txt").split("\n");
-    for (var i = 0; i < names.length; ++i) {
-        names[i] = names[i].trim();
-    }
-    for (var i = 0; i < names.length; ++i) {
-        var dancer = names[i].split(" ");
-        var sex = dancer[0];
-        var name = dancer[1];
-        if (sex == "F") {
-            femaleDancers.enqueue(new Dancer(name, sex));
-        } else {
-            maleDancers.enqueue(new Dancer(name, sex));
-        }
-    }
-}
-
-function dance(males, females) {
-    console.log("The dance partners are: \n");
-    while (!females.empty() && !males.empty()) {
-        person = females.dequeue();
-        putstr("Female dancer is: " + person.name);
-        person = males.dequeue();
-        console.log(" and the male dancer is: " + person.name);
-    }
-    console.log();
-}
 // test program
-var maleDancers = new Queue();
-var femaleDancers = new Queue();
-getDancers(maleDancers, femaleDancers);
-dance(maleDancers, femaleDancers);
-if (maleDancers.count() > 0) {
-    console.log("There are " + maleDancers.count() +
-        " male dancers waiting to dance.");
-}
-if (femaleDancers.count() > 0) {
-    console.log("There are " + femaleDancers.count() +
-        " female dancers waiting to dance.");
-}
+var q = new Queue();
+q.enqueue("Meredith");
+q.enqueue("Cynthia");
+q.enqueue("Jennifer");

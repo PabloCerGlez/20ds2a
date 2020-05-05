@@ -1,3 +1,15 @@
+// recurcion simple
+function fact(num) {
+    if (num == 1) {
+        return num
+    } else {
+        return num * fact(num - 1)
+    }
+}
+console.log(fact(5))
+
+
+// recurcion con pila
 function Stack() {
     this.dataStore = []
     this.top = 0
@@ -28,16 +40,15 @@ function length() {
     return this.top
 }
 
-function fact(n) {
-    var s = new Stack();
+function factorial(n) {
+    var s = new Stack()
     while (n > 1) {
-        s.push(n--);
+        s.push(n--)
     }
-    var product = 1;
+    var product = 1
     while (s.length() > 0) {
-        product *= s.pop();
+        product *= s.pop()
     }
-    return product;
+    return product
 }
-console.log(factorial(5));
-console.log(fact(5));
+console.log(factorial(5))
