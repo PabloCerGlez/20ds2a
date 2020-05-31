@@ -1,0 +1,15 @@
+z
+function factorial(f){
+
+
+
+
+n=10;
+
+return f=f*i;
+
+
+
+}
+
+console.log(factorial(1))
