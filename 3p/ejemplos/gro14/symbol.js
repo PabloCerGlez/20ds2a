@@ -23,15 +23,12 @@ function Stack() {
     }
 }
 
-let stack = new Stack()
-stack.push(5)
-stack.push(8)
-console.log(stack.peek())
-stack.push(11)
-console.log(stack.size())
-console.log(stack.isEmpty())
-stack.push(15)
-stack.pop()
-stack.pop()
-console.log(stack.size())
-stack.print()
+let stack = new Stack();
+stack.push(5);
+stack.push(8);
+let objectSymbols = Object.getOwnPropertySymbols(stack);
+console.log(objectSymbols.length);
+console.log(objectSymbols);
+console.log(objectSymbols[0]);
+stack[objectSymbols[0]];
+stack.print();
